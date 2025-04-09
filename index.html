@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Library</h1>
+    <table id="bookshelf">
+        <tr>
+            <th>Name</th>
+            <th>Author</th>
+            <th>Pages</th>
+            <th>Read</th>
+        </tr>
+        <tr>
+            <td>The Hobbit</td>
+            <td>J.R.R. Tolkien</td>
+            <td>295</td>
+            <td>No</td>
+        </tr>
+    </table>
+    <form id="addBookForm" action="">
+        <input type="text" name="name" id="name" required>
+        <input type="text" name="author" id="author" required>
+        <input type="number" name="pages" id="pages" min="1" required>
+        <input type="checkbox" name="isRead" id="isRead">
+        <button type="submit">+</button>
+    </form>
+    <script src="script.js"></script>
+</body>
+</html>
