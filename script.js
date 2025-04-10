@@ -25,6 +25,7 @@ Book.prototype.changeStatus = function() {
 
 ADD_BOOK_FORM.addEventListener('submit', (e) => {
     e.preventDefault();
+    addBook();
 })
 
 premadeBooks();
@@ -88,5 +89,12 @@ function deleteBook(bookList, bookId) {
 }
 
 function addBook() {
-
+    myLibrary.push(
+        new Book(
+            NAME_INPUT.value,
+            AUTHOR_INPUT.value,
+            PAGES_INPUT.value,
+            IS_READ_INPUT.checked)
+    )
+    displayBooks(myLibrary);
 }
