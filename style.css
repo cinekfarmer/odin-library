@@ -1,0 +1,68 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-size: 1.3em;
+}
+
+input, button {
+    font-size: 1em;
+}
+
+.title {
+    background-color: rebeccapurple;
+    color: white;
+    padding: 5vh;
+    font-size: 2em;
+}
+
+.add-book-form {
+    margin: 1rem;
+    padding: .3em;
+    border-bottom: .07em solid black;
+}
+.add-book-form button, .add-book-form input[type='checkbox'] {
+    cursor: pointer;
+}
+.add-book-form button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1em;
+    height: 1em;
+    width: 1em;
+}
+
+.bookshelf {
+    display: flex;
+    justify-content: center;
+    align-items: self-start;
+}
+
+table th {
+    min-width: 20vw; 
+}
+
+table tr:nth-child(even) {
+    background-color: #80808080;
+}
+
+table tr td {
+    padding: .3em
+}
+
+.modify-button, .delete-button {
+    font-size: .8em;
+    padding: .2em;
+}
+
+.modify-button {
+    background-color: green;
+}
+
+.delete-button {
+    background-color: red;
+}

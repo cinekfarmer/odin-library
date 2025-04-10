@@ -7,22 +7,36 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Library</h1>
-    <table id="bookshelf">
-        <tr>
-            <th>Name</th>
-            <th>Author</th>
-            <th>Pages</th>
-            <th>Read</th>
-        </tr>
-    </table>
-    <form id="addBookForm" action="">
-        <input type="text" name="name" id="name" required>
-        <input type="text" name="author" id="author" required>
-        <input type="number" name="pages" id="pages" min="1" required>
-        <input type="checkbox" name="isRead" id="isRead">
+    <h1 class="title">Library</h1>
+    <form id="addBookForm" class="add-book-form" action="">
+        <div>
+            <label for="name">Book's name: </label>
+            <input type="text" name="name" id="name" required>
+        </div>
+        <div>
+            <label for="author">Author's name: </label>
+            <input type="text" name="author" id="author" required>
+        </div>
+        <div>
+            <label for="pages">Book's numbr of pages: </label>
+            <input type="number" name="pages" id="pages" min="1" required>
+        </div>
+        <div>
+            <label for="isRead">Already read: </label>
+            <input type="checkbox" name="isRead" id="isRead">
+        </div>
         <button type="submit">+</button>
     </form>
+    <main class="bookshelf">
+        <table id="bookshelf">
+            <tr>
+                <th>Name</th>
+                <th>Author</th>
+                <th>Pages</th>
+                <th>Read</th>
+            </tr>
+        </table>
+    </main>
     <script src="script.js"></script>
 </body>
 </html>
