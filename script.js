@@ -1,8 +1,9 @@
-const NAME_INPUT = document.querySelector("#name");
-const AUTHOR_INPUT = document.querySelector("#author");
-const PAGES_INPUT = document.querySelector("#pages");
-const IS_READ_INPUT = document.querySelector("#isRead");
-const ADD_BOOK_FORM = document.querySelector("#addBookForm");
+const BOOKSHELF_TABLE = document.querySelector('#bookshelf');
+const NAME_INPUT = document.querySelector('#name');
+const AUTHOR_INPUT = document.querySelector('#author');
+const PAGES_INPUT = document.querySelector('#pages');
+const IS_READ_INPUT = document.querySelector('#isRead');
+const ADD_BOOK_FORM = document.querySelector('#addBookForm');
 
 const myLibrary = [];
 
@@ -26,12 +27,62 @@ ADD_BOOK_FORM.addEventListener('submit', (e) => {
     e.preventDefault();
 })
 
-//premade books
+premadeBooks();
 
-//display books
+function premadeBooks() {
+    myLibrary.push(new Book('The Hobbit', 'J.R.R. Tolkien', 295, false));
+    myLibrary.push(new Book('The Lord of the Rings', 'J.R.R. Tolkien', 1178, false));
+    myLibrary.push(new Book('The Little Prince', 'Antoine de Saint-Exupéry', 96, true));
+    displayBooks(myLibrary);
+}
 
-//add book
+function displayBooks(bookList) {
+    let HTML = `<tr><th>Name</th><th>Author</th><th>Pages</th><th>Read</th></tr>`
+    for (const book of bookList) {
+        let isReadTxt;
+        if(book.isRead) {
+            isReadTxt = 'Yes';
+        } else {
+            isReadTxt = 'No';
+        }
 
-//change status
+        HTML += `<tr>
+            <td>${book.name}</td>
+            <td>${book.author}</td>
+            <td>${book.pages}</td>
+            <td>${isReadTxt}</td>
+            <td data-book="${book.id}"><button class="modify-button">Modify</button>
+            <button class="delete-button">Delete</button></td>
+        </tr>`
+    }
+    BOOKSHELF_TABLE.innerHTML = HTML;
+    addListeners();
+}
 
-//delete book
+function addListeners(){
+    const MODIFY_BUTTONS = document.querySelectorAll('.modify-button');
+    const DELETE_BUTTONS = document.querySelectorAll('.delete-button');
+
+    for (const button of MODIFY_BUTTONS) {
+        button.addEventListener('click', () => {
+            alert('Modify clicked!' + button.parentElement.dataset.book);
+        })        
+    }
+    for (const button of DELETE_BUTTONS) {
+        button.addEventListener('click', () => {
+            alert('Delete clicked!' + button.parentElement.dataset.book);
+        })        
+    }
+}
+
+function addBook() {
+
+}
+
+function changeBookStatus(book) {
+
+}
+
+function deleteBook(book) {
+
+}
