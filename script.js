@@ -5,7 +5,7 @@ const PAGES_INPUT = document.querySelector('#pages');
 const IS_READ_INPUT = document.querySelector('#isRead');
 const ADD_BOOK_FORM = document.querySelector('#addBookForm');
 
-const myLibrary = [];
+let myLibrary = [];
 
 function Book(name, author, pages, isRead) {
     this.id = crypto.randomUUID();
@@ -65,24 +65,28 @@ function addListeners(){
 
     for (const button of MODIFY_BUTTONS) {
         button.addEventListener('click', () => {
-            alert('Modify clicked!' + button.parentElement.dataset.book);
+            let bookId = button.parentElement.dataset.book;
+            changeBookStatus(myLibrary, bookId);
         })        
     }
     for (const button of DELETE_BUTTONS) {
         button.addEventListener('click', () => {
-            alert('Delete clicked!' + button.parentElement.dataset.book);
-        })        
+            let bookId = button.parentElement.dataset.book;
+            deleteBook(myLibrary, bookId);
+        })
     }
 }
 
+function changeBookStatus(bookList, bookId) {
+    bookList.find(book => book.id === bookId).changeStatus();
+    displayBooks(myLibrary);
+}
+
+function deleteBook(bookList, bookId) {
+    myLibrary = bookList.filter(book => book.id !== bookId);
+    displayBooks(myLibrary);
+}
+
 function addBook() {
-
-}
-
-function changeBookStatus(book) {
-
-}
-
-function deleteBook(book) {
 
 }
