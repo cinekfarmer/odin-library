@@ -8,20 +8,42 @@ const ADD_BOOK_FORM = document.querySelector('#addBookForm');
 let myLibrary = [];
 
 class Book {
+    _id;
+    _name;
+    _author;
+    _pages;
+    _isRead;
+
     constructor(name, author, pages, isRead) {
-        this.id = crypto.randomUUID();
-        this.name = name;
-        this.author = author;
-        this.pages = pages;
-        this.isRead = isRead;
+        this._id = crypto.randomUUID();
+        this._name = name;
+        this._author = author;
+        this._pages = pages;
+        this._isRead = isRead;
+    }
+
+    get id() {
+        return this._id;
+    }
+
+    get name() {
+        return this._name;
+    }
+
+    get author() {
+        return this._author;
+    }
+
+    get pages() {
+        return this._pages;
+    }
+
+    get isRead() {
+        return this._isRead;
     }
 
     changeStatus() {
-        if(this.isRead) {
-            this.isRead = false;
-        } else {
-            this.isRead = true;
-        }
+        this._isRead = !this._isRead;
     }
 }
 
@@ -42,12 +64,7 @@ function premadeBooks() {
 function displayBooks(bookList) {
     let HTML = `<tr><th>Name</th><th>Author</th><th>Pages</th><th>Read</th></tr>`
     for (const book of bookList) {
-        let isReadTxt;
-        if(book.isRead) {
-            isReadTxt = 'Yes';
-        } else {
-            isReadTxt = 'No';
-        }
+        let isReadTxt = book.isRead ? 'Yes' : 'No';
 
         HTML += `<tr>
             <td>${book.name}</td>
