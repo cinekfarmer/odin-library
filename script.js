@@ -7,19 +7,21 @@ const ADD_BOOK_FORM = document.querySelector('#addBookForm');
 
 let myLibrary = [];
 
-function Book(name, author, pages, isRead) {
-    this.id = crypto.randomUUID();
-    this.name = name;
-    this.author = author;
-    this.pages = pages;
-    this.isRead = isRead;
-}
+class Book {
+    constructor(name, author, pages, isRead) {
+        this.id = crypto.randomUUID();
+        this.name = name;
+        this.author = author;
+        this.pages = pages;
+        this.isRead = isRead;
+    }
 
-Book.prototype.changeStatus = function() {
-    if(this.isRead) {
-        this.isRead = false;
-    } else {
-        this.isRead = true;
+    changeStatus() {
+        if(this.isRead) {
+            this.isRead = false;
+        } else {
+            this.isRead = true;
+        }
     }
 }
 
